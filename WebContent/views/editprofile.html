@@ -1,0 +1,40 @@
+<div class="container">
+<span style='color:red' ng-if="error.code==1">{{error.message}}</span>
+<form>
+<div class="form-group">
+Enter Userid:
+<input type="text" ng-model="user.userid" class="form-control" disabled>
+<span style='color:red' ng-if="error.code==2">{{error.message}}</span>
+</div>
+<div class="form-group">
+Enter Password:
+<input type="password" ng-model="user.password" class="form-control">
+</div>
+<div class="form-group">
+Enter Firstname:
+<input type="text" ng-model="user.firstName" class="form-control">
+</div>
+<div class="form-group">
+Enter Lastname:
+<input type="text" ng-model="user.lastName" class="form-control">
+</div>
+<div class="form-group">
+Enter Emailid:
+<input type="email" ng-model="user.emailId" class="form-control">
+<span style='color:red' ng-if="error.code==3">{{error.message}}</span>
+</div>
+<div class="form-group">
+Enter Mobileno:
+<input type="text" ng-model="user.mobileNo" class="form-control">
+</div>
+<div class="form-group">
+Select Role:
+<input type="radio" ng-model="user.role" value="STUDENT">Student
+<input type="radio" ng-model="user.role" value="EMPLOYEE">Employee
+<input type="radio" ng-model="user.role" value="ALUMNI">Alumni
+</div>
+
+<input type="submit" value="update" ng-click="updateUser()">
+</form>
+
+</div>

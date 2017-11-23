@@ -1,0 +1,14 @@
+<table class="table table-stripped">
+<tbody>
+<tr ng-repeat="request in pendingRequests">
+<td>{{request.fromId}}</td>
+
+<td><img src="http://localhost:8082/CollaborateMiddleware/getprofilepic/{{currentUser.userId}}" alt="Image not available" width="30px" height="30px" class="img-rounded">
+
+<td><a class="btn btn-primary" ng-click="updatePendingRequest(request,'A')">Accept Friend Request</a></td>
+
+<td><a class="btn btn-warning" ng-click="updatependingRequest(request,'D')">Delete Friend Request</a></td>
+
+</tr>
+
+<td></tbody></table>

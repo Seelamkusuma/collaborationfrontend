@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- Bootstrap, Angular Js ,Angular Route js --> 
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ 
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/sample.css">
+
+ <title>insert title here</title>
+ </head>
+ <body ng-app="app">
+ <header>
+             <nav class="navbar navbar-default">     
+                  
+               <div class="container-fluid">
+       <button type="button" class="navbar-toggle collapsed" 
+       data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     </button>
+                <div class="navbar-header">
+                <a class="navbar-brand" href="/">NIIT</a>
+                </div>
+  <div class="collapse navbar-collapse" id="collapse-example">
+                   <ul class="nav navbar-nav ">
+                   <li><a href="#/Home">Home</a></li>
+                   <li><a href="#/RegistrationForm" ng-hide="currentUser.userId">Sign Up</a></li>
+                   <li><a href="#/Login" ng-hide="currentUser.userId" >Sign In</a></li>
+                   <li><a href="#/editprofile" ng-show="currentUser.userId">Edit User Profile</a></li>
+                   
+                   
+                   <li class="dropdown"><a href="" class="dropdown-toggle"
+                   data-toggle="dropdown" ng-show="currentUser.userId">Blog<b
+                   class="caret"></b></a>
+                   <ul class="dropdown-menu">
+                   <li><a href="#/addblog">Add a Blog</a><li>
+                   <li><a href="#/getblogs">Get All Blogs</a></li>
+                   </ul></li>
+                   
+                    <li class="dropdown"><a href="" class="dropdown-toggle"
+                   data-toggle="dropdown" ng-show="currentUser.userId">Job<b
+                   class="caret"></b></a>
+                   <ul class="dropdown-menu">
+                   <li><a href="#/addjob" ng-show="currentUser.role=='ADMIN'">Add Job</a><li>
+                   <li><a href="#/getjobs">Get All Jobs</a></li>
+                   </ul></li>
+                   <li class="dropdown"><a href="" class="dropdown-toggle"
+                   data-toggle="dropdown" ng-show="currentUser.userId">Friend<b
+                   class="caret"></b></a>
+                   <ul class="dropdown-menu">
+                   <li><a href="#/getsuggestedusers" >List of suggested users</a><li>
+                   <li><a href="#/pendingrequests" >Pending Requests</a><li>
+                   <li><a href="#/listoffriends" >List of Friends</a><li>
+                   </ul></li>
+                   
+                   <li><a href="#/uploadprofilepic" ng-show="currentUser.userId">
+                    <img src="http://localhost:8082/CollaborateMiddleware/getprofilepic/{{currentUser.userId}}" alt="upload Picture" width="30px" height="30px" class="img-rounded">
+                    </a></li>
+                   
+                   
+                   <li><a href="#" ng-show="currentUser.userId">Welcome {{currentUser.firstName}} {{currentUser.lastName}}</a></li>
+                   <li><a href="" ng-click="logout()" ng-show="currentUser.userId">Logout</a></li>
+                   
+                   <li><a href="#/chat" ng-show="currentUser.userId">chat </a></li>
+                   
+                   <li class="dropdown"><a href="" class="dropdown-toggle"
+							data-toggle="dropdown" ng-show="currentUser.userId"> <span
+								class="glyphicon glyphicon-globe" ng-click="updateLength()"> <span
+									class="rw number-notification" ng-if="approvalStatusLength>0">{{approvalStatusLength}}</span></span></a>
+
+							<ul class="dropdown-menu">
+
+								<li ng-repeat="blog in blogApprovalStatus"><a
+									href="" ng-click="updateViewedStatus(blog)">Blog name <b>"{{blog.blogName}}"</b>
+										is <span ng-if="blog.approved">Approved</span>
+										
+										<span
+										ng-if="!blog.approved"><div class="container">rejected
+										for the reason {{blog.rejectionReason}}</div>
+										</span>
+								</a></li>
+
+							</ul></li>
+                   </ul>
+                   </div>
+                   </div>
+                   </nav>`
+                   </header> 
+                   <div ng-view> </div>    
+      </body>
+      
+       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js">
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.min.js"></script>  
+    
+     
+   <script type="text/javascript" src="js/app.js"></script>
+   <script type="text/javascript" src="Controllers/UserController.js"></script>
+   <script type="text/javascript" src="Service/UserService.js"></script>
+   <script type="text/javascript" src="Controllers/BlogController.js"></script>
+   <script type="text/javascript" src="Service/BlogService.js"></script>
+   <script type="text/javascript" src="Controllers/BlogDetailController.js"></script>
+   <script type="text/javascript" src="Service/JobService.js"></script>
+   <script type="text/javascript" src="Controllers/JobController.js"></script>
+   <script type="text/javascript" src="Controllers/FriendController.js"></script>
+   <script type="text/javascript" src="Service/FriendService.js"></script>
+   
+   <script type="text/javascript" src="Controllers/ChatController.js"></script>
+   <script type="text/javascript" src="Service/ChatService.js"></script>
+   
+   <script type="text/javascript" src="sockjs/sockjs.js"></script>
+   <script type="text/javascript" src="stomp/dist/stomp.js"></script>
+   
+   <script type="text/javascript" src="Controllers/HomeController.js"></script>
+   
+   
+      
+</html>
+    
+    

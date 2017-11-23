@@ -1,0 +1,31 @@
+<table class="table table-striped">
+<thead>
+<tr>
+<td>Name</td>
+<td>Role</td>
+<td>Email</td>
+<td>Online Status</td>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="user in suggestedUsers">
+
+<td> {{user.firstName}} {{user.lastName}}</td>
+
+
+
+<td> {{user.role}} </td>
+
+<td> {{user.emailId}} </td>
+
+<td ng-if="user.isOnline">YES</td>
+
+<td ng-if="!user.isOnline">NO</td>
+
+<td><img src="http://localhost:8082/CollaborateMiddleware/getprofilepic/{{user.userId}}" alt="No Image" width="30px" height="30px" class="img-rounded">
+
+<td><a class="btn btn-default" ng-click="sendFriendRequest(user.userId)">Send Friend Request</a></td>
+
+</tr>
+</tbody>
+</table>
